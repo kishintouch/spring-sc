@@ -41,10 +41,19 @@ public class CartController {
     
    
     
-    @RequestMapping(path = "/cart/{id}", method = RequestMethod.PATCH)
+    @RequestMapping(path = "/cart/{cartid}", method = RequestMethod.PATCH)
+    public ResponseEntity<List<CartProductModel>>  updateCartQuantity(@PathVariable("cartid") BigInteger cartid, @Valid @RequestBody CartModel cartModel) {
+    	cartService.updateCartQuantity(cartid, cartModel);
+    	List<CartProductModel> products = cartService.getCartProducts(cartModel.getUserId());
+        return ResponseEntity.ok(products);
+       
+    }
+    
+    @RequestMapping(path = "/cart/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?>  updateCart(@PathVariable("id") BigInteger id, @Valid @RequestBody CartModel cartModel) {
     	cartService.update(id, cartModel);
-        return ResponseEntity.noContent().build();
+    	//List<CartProductModel> products = cartService.getCartProducts(cartModel.getUserId());
+    	return ResponseEntity.noContent().build();
     }
     
     @RequestMapping(path = "/user/{userid}/cart/{cartid}", method = RequestMethod.DELETE)

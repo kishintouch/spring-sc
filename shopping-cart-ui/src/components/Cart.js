@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
-import { isAuthenticated,getCartProductsByUserId,removeProductFromCart,clearCart } from '../repository';
+import { isAuthenticated,getCartProductsByUserId,removeProductFromCart,clearCart ,updateCartQuantity} from '../repository';
 import CartItem from './CartItem';
 
 export default class Cart extends React.Component {
@@ -25,7 +25,6 @@ export default class Cart extends React.Component {
 			let total = 0;
 			
 			for (var i = 0; i < products.length; i++) {
-				console.log("products id " + products[i].cartId);
 				total += products[i].productPrice * products[i].quantity;
 			}
 	    	this.setState({ products, total });
@@ -49,9 +48,27 @@ export default class Cart extends React.Component {
 		this.setState({products, total});
 	}
 
+	updateCart = (product,productQty) => {
+		let user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : {};
+
+		  const cartData = {
+		  	userId: user.id,
+	        cartProducts : {quantity: productQty}
+	      };
+	      updateCartQuantity(product.cartId,cartData).then((products) => {
+	      		console.log(" UdpatecaRt " + products)
+				let total = 0;
+				for (var i = 0; i < products.length; i++) {
+					total += products[i].productPrice * products[i].quantity;
+				}
+				console.log(" UdpatecaRt 1 " + products)
+		    	this.setState({ products, total });
+	  	  });
+
+	}
+
 	clearCarts = () => {
 		let user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : {};
-		console.log("user " + user.id)
 		clearCart(user.id).then(() => {
 			this.setState({products: []});
 	    });
@@ -66,7 +83,7 @@ export default class Cart extends React.Component {
 				<h3 className="card-title">Cart</h3>
 				<hr/>
 				{
-					products.map((product, index) => <CartItem product={product} remove={this.removeFromCart} key={index}/>)
+					products.map((product, index) => <CartItem product={product} remove={this.removeFromCart} update={this.updateCart} key={index}/>)
 				}
 				<hr/>
 				{ products.length ? <div><h4><small>Total Amount:</small><span className="float-right text-primary">${total}</span></h4><hr/></div>: ''}

@@ -6,7 +6,7 @@ public class CartProductModel {
 	
 	private BigInteger productId ;
 	private String productName;
-	private String productPrice;
+	private BigInteger productPrice;
 	private String productDescription;
 	private String productCatageory;
 	private String productModel;
@@ -24,10 +24,10 @@ public class CartProductModel {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public String getProductPrice() {
+	public BigInteger getProductPrice() {
 		return productPrice;
 	}
-	public void setProductPrice(String productPrice) {
+	public void setProductPrice(BigInteger productPrice) {
 		this.productPrice = productPrice;
 	}
 	public String getProductDescription() {

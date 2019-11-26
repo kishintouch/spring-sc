@@ -9,10 +9,11 @@ export function getProducts() {
 		.then(response => response.data);
 }
 
-export function getCartProducts(cart) {
-	return axios.post(`${BASE_URL}/products`, {cart})
+export function saveUser(userDetails) {
+	return axios.post(`${BASE_URL}/user`, userDetails)
 		.then(response => response.data);
 }
+
 
 export function getCartProductsByUserId(userid) {
 	let token = getToken();
@@ -37,6 +38,15 @@ export function removeProductFromCart(userid,cartid) {
         "Bearer " + token ;
         let url = `${BASE_URL}/user/` + userid  + '/cart/' + cartid
 	return axios.delete(url)
+		.then(response => response.data);
+}
+
+export function updateCartQuantity(cartid,cart) {
+	let token = getToken();
+	axios.defaults.headers.common["Authorization"] =
+        "Bearer " + token ;
+        let url = `${BASE_URL}/cart/` + cartid 
+	return axios.patch(url,cart)
 		.then(response => response.data);
 }
 

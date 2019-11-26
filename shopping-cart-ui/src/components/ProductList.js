@@ -1,32 +1,45 @@
-import React ,{ useState }from 'react';
+import React from 'react';
 import ProductItem from './ProductItem';
 import { getProducts } from '../repository';
 import { Link } from 'react-router-dom';
-import { Alert } from 'reactstrap';
+
 
 export default class ProductList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			products: [],
-			isOpen : false
+			isOpen : false,
+			items : []
 		}
 	}
 
 	componentWillMount() {
-		getProducts().then((products) => {
-	      this.setState({ products });
+		getProducts().then((items) => {
+		  this.setState({ items : items });
+	      this.setState({ products : items });
+	      
 	    });
 	}
 	
+	filterList =(event) => {
+		console.log('in filter ' + event.target.value )
+		let items =this.state.items;
+		items = items.filter((item) => {
+			return item.productName.toLowerCase().search(event.target.value.toLowerCase()) !== -1 ;
+		})
+
+		this.setState({products : items});
+	}
 
 	 toggle = (event) => this.setState({isOpen: event.target.value})
 
 	render() {
 		const { products } =  this.state;
-		
+		console.log("this.state " +  this.state)
 		return (
 			<div className=" container">
+				<input type="text" style={{ width: "100%" ,marginRight: "20px" }} placeholder="Search Products" onChange={this.filterList} />
 				<h3 className="card-title">List of Available Products</h3>
 	
 				<hr/>

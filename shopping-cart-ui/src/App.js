@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Login from './components/Login';
 import Products from './components/ProductList';
 import Cart from './components/Cart';
+import Register from './components/Register';
 import Checkout from './components/Checkout';
 import {  BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import { isAuthenticated } from './repository';
@@ -45,6 +46,7 @@ class App extends Component {
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/checkout" component={Checkout} />
             { (!auth) ? <Route exact path="/login" component={Login} /> : '' }
+            <Route exact path="/reg" component={Register} />
           </div>
         </div>
       </Router>

@@ -40,7 +40,7 @@ export default class Login extends React.Component{
                   <label>Password:</label>
                   <input type="password" className="form-control" name="password" onChange={this.handleInputChange}/>
                 </div>
-                <Link to="/"><button className="btn btn-success float-right" style={{ marginRight: "10px" }}>New User ? Signup..</button></Link>
+                <Link to="/reg"><button className="btn btn-success float-right" style={{ marginRight: "10px" }}>New User ? Signup..</button></Link>
                 <button type="submit" className="btn btn-default">Submit</button>
               </form>
             </div>
