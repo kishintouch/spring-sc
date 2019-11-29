@@ -84,6 +84,7 @@ public class CartServiceTest {
 			System.out.println(c.getProductName());
 			Assert.assertEquals("Invalid Product Name","Nokia",c.getProductName());
 		}
+		//Mockito.verify(cartRepo, Mockito.times(1)).size();
 	}
 
 }

@@ -21,7 +21,7 @@ public class AddUser {
 		
 		String port = System.getProperty("server.port");
 		System.out.println("port " + port);
-	    RestAssured.baseURI = "http://localhost:8080/";
+	    RestAssured.baseURI = "http://localhost:9999/shoppingcart";
 	    //RestAssured.port = 443;
 	}
 
@@ -32,7 +32,7 @@ public class AddUser {
 		
 		Map<String,String> userData = new HashMap<>();
 		userData.put("name", "kishore");
-		userData.put("emailAddress", "kishintouch@gmail.com");
+		userData.put("emailAddress", "uishintouch@gmail.com");
 		userData.put("age", "20");
 		userData.put("password","test");
 		userData.put("gender", "male");
