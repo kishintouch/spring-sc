@@ -24,8 +24,13 @@ public class UserService {
 	UserMapper userMapper ;
 	
 	public void save(UserDetailsModel userDetailsModel) {
-		UserDetailsEntity userDetailsEntity = userMapper.toUserDetailsEntity(userDetailsModel);
-		userRepo.save(userDetailsEntity);
+		UserDetailsEntity userDetails = userRepo.findByEmailAddress(userDetailsModel.getEmailAddress());
+		if(userDetails == null) {
+			UserDetailsEntity userDetailsEntity = userMapper.toUserDetailsEntity(userDetailsModel);
+			userRepo.save(userDetailsEntity);
+		}else {
+			throw new AppException(UserError.USER_EXISTS);
+		}
 	}
 	
     public UserLoginModel getUserForLogin(String username) {

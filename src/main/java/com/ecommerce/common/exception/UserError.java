@@ -2,7 +2,8 @@ package com.ecommerce.common.exception;
 
 public enum UserError implements AppError {
    
-    USER_NOT_FOUND("user.notfound", "User Not Found", SeverityType.NONE, ErrorType.VALIDATION_FAILURE);
+    USER_NOT_FOUND("user.notfound", "User Not Found", SeverityType.NONE, ErrorType.VALIDATION_FAILURE),
+	USER_EXISTS("user.exists", "User Exists ", SeverityType.NONE, ErrorType.VALIDATION_FAILURE);
 
     String errorCode;
     String defaultMessage;
