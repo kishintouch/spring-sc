@@ -9,7 +9,7 @@
 		<version>2.2.1.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ecommerce</groupId>
+	<groupId>com.spring</groupId>
 	<artifactId>shoppingcart</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
