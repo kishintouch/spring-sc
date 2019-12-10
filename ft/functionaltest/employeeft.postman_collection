@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "5002f4ad-5bf3-4c88-8717-ad62b54c24a6",
+		"name": "HemaAlti",
+		"description": "This webservice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Employess",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "update Employees"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
