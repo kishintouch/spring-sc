@@ -19,3 +19,12 @@ shopping cart ui is developed in React JS .Navigate to the folder spring-sc\shop
 After downloading necessary modules start the ui with commans npm start .This will start app in http://localhost:3000/ .Base_URL of repository.js is configured 
 to default project running from embedded to tomcat server , if the REST_API end points are deployed in stand alone server then url needs to be changed accordingly.
 
+
+
+Swagger UI :
+Swagger UI is configured at the below mentioned URL .Swagger API configuration is done only for few API(Cart Controller - get cart by User id and for other api default swagger configurations 
+is used.Need to enhance swagger documentation for each API.
+
+Swagger API Docs  - http://docs.swagger.io/swagger-core/apidocs/
+Swagger UI - http://localhost:8080/swagger-ui.html#/
+Swagger api-docs for app - http://localhost:8080/v2/api-docs

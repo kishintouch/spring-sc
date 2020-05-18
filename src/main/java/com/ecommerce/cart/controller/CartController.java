@@ -16,6 +16,10 @@ import com.ecommerce.cart.model.*;
 import com.ecommerce.cart.service.CartService;
 import com.ecommerce.products.entity.*;
 
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 public class CartController {
 	
@@ -33,6 +37,10 @@ public class CartController {
         return ResponseEntity.ok(products);
 	}
     
+    @ApiOperation(value = "Get Cart for specific User Id", tags = "cart-controller")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "Authorization", required=true ,value = "The session token retrieved by calling login endpoint.", paramType = "header"),
+    })
     @RequestMapping(path = "/cart/{userid}", method = RequestMethod.GET)
 	public ResponseEntity<List<CartProductModel>> getCartProducts(@PathVariable("userid") BigInteger userid){
     	List<CartProductModel> products = cartService.getCartProducts(userid);

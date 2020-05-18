@@ -12,14 +12,14 @@ import org.springframework.test.context.junit4.*;
 import com.ecommerce.user.repo.UserLoginRepo;
 import com.ecommerce.user.entity.UserLoginEntity;
 
-@RunWith(SpringRunner.class)
-@DataJpaTest
+//@RunWith(SpringRunner.class)
+//@DataJpaTest
 public class UserLoginRepoTest {
 
     @Autowired
     UserLoginRepo userLoginRepo;
 
-    @Test
+   // @Test
     public void myTest() throws Exception {
     	
     	//UserLoginEntity userLoginEntity = userLoginRepo.findByUsername("kishintouch@gmail.com");
