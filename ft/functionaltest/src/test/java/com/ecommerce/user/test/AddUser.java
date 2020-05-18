@@ -3,8 +3,6 @@ package com.ecommerce.user.test;
 
 import java.util.*;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
 import java.io.FileInputStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,18 +13,19 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.apache.commons.io.IOUtils;
+import org.junit.jupiter.api.BeforeAll;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 public class AddUser {
 	
-	@BeforeClass
 	public static void setup() {
 	    //RestAssured.baseURI = "http://localhost:9999/shoppingcart";
 	    RestAssured.baseURI = "http://localhost:8080/";
 	}
 
-	@Test
+	
 	public void addUser()
 	{
 		try {

@@ -1,10 +1,10 @@
 package com.employee.functionaltest;
 
 public class Employee {
-	String name;
-	int salary;
-	int age;
-	int id;
+	private String name;
+	private int salary;
+	private int age;
+	private int id;
 
 	public int getSalary() {
 		return salary;

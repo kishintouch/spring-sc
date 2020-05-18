@@ -6,14 +6,13 @@ import java.io.OutputStream;
 import java.io.IOException;
 import java.io.FileOutputStream;
 import io.restassured.RestAssured;
-import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import junit.framework.Assert;
 
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.json.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.apache.commons.io.IOUtils;
 
 import com.google.gson.Gson;
@@ -21,7 +20,7 @@ import com.google.gson.JsonObject;
 
 public class Insertemployee {
 
-	@BeforeClass
+	@BeforeAll
 	public static void setup() {
 
 		RestAssured.baseURI = "http://dummy.restapiexample.com";
