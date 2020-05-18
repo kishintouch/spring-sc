@@ -1,7 +1,10 @@
 import axios from 'axios';
 
+//Base URL for war deployed in Stand Alone Tomcat Containter
+//const BASE_URL = 'http://localhost:9999/shoppingcart';
 
-const BASE_URL = 'http://localhost:9999/shoppingcart';
+//Base URL for jar Started in Tomcat as part of Spring Boot  
+const BASE_URL = 'http://localhost:8080';
 
 export function getProducts() {
     

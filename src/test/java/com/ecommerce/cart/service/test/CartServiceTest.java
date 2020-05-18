@@ -78,7 +78,7 @@ public class CartServiceTest {
 		List<CartEntity> entities = new ArrayList<CartEntity>();
 		entities.add(entity);
 
-		Mockito.when(cartRepo.getCartDetailsByUser(BigInteger.valueOf(2))).thenReturn(entities);
+		Mockito.when(cartRepo.getCartDetailsByUser(BigInteger.valueOf(2).longValue())).thenReturn(entities);
 		List<CartProductModel> cartProductModels = cartService.getCartProducts(BigInteger.valueOf(2));
 		for (CartProductModel c : cartProductModels) {
 			System.out.println(c.getProductName());

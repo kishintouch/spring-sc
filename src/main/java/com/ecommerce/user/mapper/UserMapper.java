@@ -53,6 +53,7 @@ public class UserMapper {
 		entity.setGender(model.getGender());
 		
 		UserLoginEntity loginEntity = new UserLoginEntity();
+		//loginEntity.setId(id);
 		loginEntity.setUsername(model.getEmailAddress());
 		loginEntity.setPassword(model.getPassword());
 		

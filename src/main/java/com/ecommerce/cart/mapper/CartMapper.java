@@ -81,9 +81,7 @@ public class CartMapper {
 	public CartEntity toCartEntity(CartModel model, CartEntity entity) {
 
 		entity.setId(model.getId());
-		UserDetailsEntity userDetail = userRepo.findById(model.getUserId())
-				.orElseThrow(() -> new AppException(UserError.USER_NOT_FOUND));
-		;
+		UserDetailsEntity userDetail = userRepo.getUserByLoginId(model.getUserId().longValue());
 		entity.setUserDetails(userDetail);
 
 		ProductsEntity prodEntity = productsRepo.findById(model.getCartProducts().getProductId())

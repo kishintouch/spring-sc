@@ -48,7 +48,7 @@ public class CartService {
 	}
 	
 	public List<CartProductModel> getCartProducts(BigInteger userId){
-		List<CartEntity> entities =	 cartRepo.getCartDetailsByUser(userId);
+		List<CartEntity> entities =	 cartRepo.getCartDetailsByUser(userId.longValue());
 		
 		List<CartProductModel> cartProductModels = new ArrayList<CartProductModel>();
 		for(CartEntity entity : entities) {
@@ -117,7 +117,7 @@ public class CartService {
 	}
 	
 	public void deleteCartByUserId(BigInteger userId) {
-		List<CartEntity> entities =	 cartRepo.getCartDetailsByUser(userId);
+		List<CartEntity> entities =	 cartRepo.getCartDetailsByUser(userId.longValue());
 		cartRepo.deleteAll(entities);
 	}
 	

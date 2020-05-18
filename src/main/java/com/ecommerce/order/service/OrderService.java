@@ -34,7 +34,7 @@ public class OrderService {
 	
 	public BigInteger placeOrder(BigInteger userId) {
 		
-		List<CartEntity> userCart = cartRepo.getCartDetailsByUser(userId);
+		List<CartEntity> userCart = cartRepo.getCartDetailsByUser(userId.longValue());
 		
 		OrderEntity ordEntity = new OrderEntity();
 		ordEntity.setOrderDesc("Order");
