@@ -1,4 +1,4 @@
-spring-sc :
+#spring-sc :
 This project exposes a set of Rest API's which is required for building Shopping Cart .Rest API end points are secured by JWT tokens .To Run this project checkout from git hub 
 and follow below mentioned steps .
 
@@ -14,14 +14,14 @@ create user for login and add products .
 To add products via post man we need to configure configuration.setAllowedOrigins(Arrays.asList("*"));
 
 
-spring-sc/shopping-cart-ui/ :
+#spring-sc/shopping-cart-ui/ :
 shopping cart ui is developed in React JS .Navigate to the folder spring-sc\shopping-cart-ui and do npm install to download the necessary node modules.
 After downloading necessary modules start the ui with commans npm start .This will start app in http://localhost:3000/ .Base_URL of repository.js is configured 
 to default project running from embedded to tomcat server , if the REST_API end points are deployed in stand alone server then url needs to be changed accordingly.
 
 
 
-Swagger UI :
+#Swagger UI :
 Swagger UI is configured at the below mentioned URL .Swagger API configuration is done only for few API(Cart Controller - get cart by User id and for other api default swagger configurations 
 is used.Need to enhance swagger documentation for each API.
 
