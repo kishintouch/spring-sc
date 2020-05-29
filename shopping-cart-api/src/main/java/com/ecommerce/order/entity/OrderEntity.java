@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.HashSet;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,6 +24,7 @@ public class OrderEntity extends BaseEntity {
 	
 	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(columnDefinition = "bigint(20)")
 	private BigInteger id ;
 	private String ordertype ;
 	private String orderDesc ;

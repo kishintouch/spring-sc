@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.Set;
 import java.util.HashSet;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,8 +24,11 @@ public class OrderDetailsEntity extends BaseEntity {
 	
 	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(columnDefinition = "bigint(20)")
 	private BigInteger id ;
+	@Column(columnDefinition = "bigint(20)")
 	private BigInteger productId ;
+	@Column(columnDefinition = "bigint(20)")
 	private BigInteger userId ;
 
 	 @ManyToOne

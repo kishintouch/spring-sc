@@ -35,6 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 				.antMatchers("/").permitAll()
 		        .antMatchers("/h2-console/**").permitAll()
+		        .antMatchers(HttpMethod.GET,"/startBatchProcess/**").permitAll()
 		        .antMatchers("/v2/api-docs", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
 				.antMatchers(HttpMethod.POST, "/login").permitAll()
 				.antMatchers(HttpMethod.POST, "/user").permitAll()
@@ -49,10 +50,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
 		//Below is the Cors Configuration to allow request only from React UI 
-		configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+		//configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
 		
 		//Below is the Cors Configuration to allow request only from React UI and PostMan
-		//configuration.setAllowedOrigins(Arrays.asList("*"));
+		configuration.setAllowedOrigins(Arrays.asList("*"));
 		configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PATCH", "DELETE"));
 		configuration.setAllowedHeaders(Arrays.asList("*"));
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

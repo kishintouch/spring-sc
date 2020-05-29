@@ -1,5 +1,6 @@
 package com.ecommerce.user.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,6 +18,7 @@ public class UserLoginEntity extends BaseEntity {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "bigint(20)")
     private Long id;
     public Long getId() {
 		return id;

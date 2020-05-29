@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.Set;
 import java.util.HashSet;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,24 +24,21 @@ public class CartEntity extends BaseEntity {
 	
 	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(columnDefinition = "bigint(20)")
 	private BigInteger Id ;
+	
+	@Column(columnDefinition = "bigint(20)")
 	private BigInteger quantity;
 
 	 @OneToOne(fetch = FetchType.EAGER )
-	 @JoinColumn(name = "user_id")
+	 @JoinColumn(name = "user_id" ,columnDefinition = "bigint(20)")
 	private UserDetailsEntity userDetails;
 	
 	 @OneToOne(fetch = FetchType.EAGER )
-	 @JoinColumn(name = "cart")
+	 @JoinColumn(name = "cart",columnDefinition = "bigint(20)")
 	private ProductsEntity prodEntity ;
 	
-	
-	public BigInteger getId() {
-		return Id;
-	}
-	public void setId(BigInteger id) {
-		Id = id;
-	}
+
 	public BigInteger getQuantity() {
 		return quantity;
 	}
@@ -59,6 +57,11 @@ public class CartEntity extends BaseEntity {
 	public void setProdEntity(ProductsEntity prodEntity) {
 		this.prodEntity = prodEntity;
 	}
-
+	public BigInteger getId() {
+		return Id;
+	}
+	public void setId(BigInteger id) {
+		Id = id;
+	}
 	
 }

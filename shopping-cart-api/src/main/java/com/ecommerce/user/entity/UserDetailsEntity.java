@@ -3,6 +3,7 @@ package com.ecommerce.user.entity;
 import java.math.BigInteger;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,6 +21,7 @@ public class UserDetailsEntity extends BaseEntity {
 	
 	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(columnDefinition = "bigint(20)")
 	private BigInteger Id ;
 	
 	private String name;
