@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ecommerce.java.annotations.LogTime;
 import com.ecommerce.products.model.ProductsModel;
 import com.ecommerce.products.service.ProductService;
 
@@ -26,6 +27,7 @@ public class ProductsController {
     }
     
     @RequestMapping(path = "/products", method = RequestMethod.GET)
+    @LogTime
 	public ResponseEntity<List<ProductsModel>> getAllProducts(){
     	List<ProductsModel> products = prodService.getAllProducts();
         return ResponseEntity.ok(products);
